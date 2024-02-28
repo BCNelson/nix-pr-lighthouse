@@ -27,6 +27,11 @@ process.once('unhandledRejection', async (err) => {
   shutdown();
 });
 
+process.once('uncaughtException', async (err) => {
+  app.log.error(err, 'Uncaught exception');
+  shutdown();
+});
+
 process.once('SIGINT', () => {
   app.log.info('Received SIGINT shutting down');
   process.once('SIGINT', () => {
