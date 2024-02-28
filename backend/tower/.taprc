@@ -1,0 +1,15 @@
+# vim: set filetype=yaml :
+coverage-report:
+  - text
+  - html
+color: true
+exclude:
+  - "**/@(fixture*(s)|dist)/**"
+include:
+  - "**/@(test?(s)|__test?(s)__)/**/*.@(js|cjs|mjs|tap|cts|jsx|mts|ts|tsx)"
+  - "**/*.@(test?(s)|spec).@(js|cjs|mjs|tap|cts|jsx|mts|ts|tsx)"
+  - "**/test?(s).@(js|cjs|mjs|tap|cts|jsx|mts|ts|tsx)"
+jobs: 12
+snapshot-clean-cwd: true
+timeout: 30
+coverage-map: scripts/coverage-map.mjs

@@ -1,0 +1,1 @@
+export default (testfile) => testfile.replace(/spec\.ts$/, 'ts')

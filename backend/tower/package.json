@@ -1,0 +1,28 @@
+{
+  "name": "tower",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "tap --reporter base",
+    "test:report": "tap report",
+    "test:watch": "tap repl w",
+    "lint": "eslint .",
+    "build": "tsx ./scripts/build.mts",
+    "build:dev": "tsx ./scripts/build.mts --dev"
+  },
+  "keywords": [],
+  "author": "Bradley Nelson",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.20.1",
+    "eslint": "^8.57.0",
+    "tap": "^18.7.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.1.0"
+  },
+  "dependencies": {
+    "fastify": "^4.26.1"
+  }
+}
