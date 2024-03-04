@@ -1,4 +1,3 @@
-
 import createApp from "./app.js";
 import GetConfig from "./config/index.js";
 
@@ -16,10 +15,9 @@ app.listen({
   app.log.info(`Server listening at ${address}`);
 });
 
-async function shutdown(error = false) {
+async function shutdown() {
   app.log.info('Shutting down Tower');
-  app.close();
-  process.exit(error ? 1 : 0);
+  await app.close();
 }
 
 process.once('unhandledRejection', async (err) => {

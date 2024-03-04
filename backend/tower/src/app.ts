@@ -1,8 +1,9 @@
 import Fastify from 'fastify';
 import type { FastifyInstance } from 'fastify';
 import type { TowerConfig } from './config/schema.js';
+import postgressPlugin from './repositories/postgres.js';
 
-type CreateAppConfig = Pick<TowerConfig, 'logLevel'>;
+type CreateAppConfig = Pick<TowerConfig, 'logLevel' | 'db'>;
 
 export default function createApp(config: CreateAppConfig): FastifyInstance {
   const app = Fastify({
@@ -10,6 +11,7 @@ export default function createApp(config: CreateAppConfig): FastifyInstance {
       level: config.logLevel,
     },
   });
+  app.register(postgressPlugin(config.db));
   app.get('/', async () => {
     return { hello: 'world' };
   });

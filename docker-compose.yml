@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: "postgres:16-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./backend/tower/static/migrations/0000.setup.sql:/docker-entrypoint-initdb.d/000-init.sql
+
+volumes:
+  postgres:

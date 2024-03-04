@@ -1,7 +1,6 @@
 # vim: set filetype=yaml :
 coverage-report:
   - text
-  - html
 color: true
 exclude:
   - "**/@(fixture*(s)|dist)/**"
@@ -13,3 +12,6 @@ jobs: 12
 snapshot-clean-cwd: true
 timeout: 30
 coverage-map: scripts/coverage-map.mjs
+plugin:
+  - "!@tapjs/intercept"
+  - "@tapjs/sinon"

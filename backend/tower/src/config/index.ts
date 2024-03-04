@@ -1,12 +1,20 @@
 import { TowerConfig } from "./schema.js";
-import { GetNumaricEnvWithDefault } from "./helpers.js";
+import { GetEnvWithDefault, GetNumaricEnvWithDefault } from "./helpers.js";
 
 let config: Readonly<TowerConfig> | undefined = undefined;
 
 function CreateConfig(): TowerConfig {
   return {
     port: GetNumaricEnvWithDefault("PORT", 3000),
-    logLevel: process.env.LOG_LEVEL || "info",
+    logLevel: GetEnvWithDefault("LOG_LEVEL", "debug"),
+    db: {
+      host: GetEnvWithDefault("DB_HOST", "localhost"),
+      port: GetNumaricEnvWithDefault("DB_PORT", 5432),
+      database: GetEnvWithDefault("DB_DATABASE", "lighthouse"),
+      user: GetEnvWithDefault("DB_USER", "tower"),
+      password: GetEnvWithDefault("DB_PASSWORD", "password"),
+      migrationPath: GetEnvWithDefault("DB_MIGRATION_PATH", "migrations"),
+    }
   };
 }
 

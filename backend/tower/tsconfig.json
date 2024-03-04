@@ -2,7 +2,14 @@
     "compilerOptions": {
       "target": "ES2022",
       "module": "NodeNext",
-      "strictNullChecks": true
+      "strictNullChecks": true,
+      "types": ["node"],
+      "strict": true,
+      "baseUrl": ".",
+      "paths": {
+        "@static/*": ["static/*"]
+      }
     },
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts", "**/*.mts"],
+    "exclude": [".eslintrc.cjs"]
 }

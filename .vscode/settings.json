@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.json": "jsonc"
-      }
+      },
+      "eslint.experimental.useFlatConfig": true
 }

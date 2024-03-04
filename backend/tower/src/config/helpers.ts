@@ -11,3 +11,11 @@ export function GetNumaricEnvWithDefault(name: string, defaultValue: number): nu
   }
   return parsed;
 }
+
+export function GetEnvWithDefault(name: string, defaultValue: string): string {
+  const value = process.env[name];
+  if (value === undefined) {
+    return defaultValue;
+  }
+  return value;
+}
